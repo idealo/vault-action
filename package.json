@@ -48,10 +48,12 @@
         "jsonata": "^1.8.2"
     },
     "peerDependencies": {
-        "@actions/core": ">=1 <2"
+        "@actions/core": ">=1 <2",
+        "@actions/github": ">=4 <5"
     },
     "devDependencies": {
         "@actions/core": "^1.2.3",
+        "@actions/github": "^4.0.0",
         "@types/got": "^9.6.11",
         "@types/jest": "^26.0.13",
         "@zeit/ncc": "^0.22.3",

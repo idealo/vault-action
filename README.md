@@ -70,12 +70,22 @@ with:
   secretId: ${{ secrets.secretId }}
   caCertificate: ${{ secrets.VAULTCA }}
 ```
-- **github**: you must provide the github token as `githubToken`
+- **github**: you must provide the github personal access token as `githubToken`
 ```yaml
 ...
 with:
   url: https://vault.mycompany.com:8200
   method: github
+  githubToken: ${{ secrets.GITHUB_PAT }}
+  caCertificate: ${{ secrets.VAULTCA }}
+```
+
+- **github-actions**: you must provide the github actions token as `githubToken`
+```yaml
+...
+with:
+  url: https://vault.mycompany.com:8200
+  method: github-actions
   githubToken: ${{ secrets.GITHUB_TOKEN }}
   caCertificate: ${{ secrets.VAULTCA }}
 ```

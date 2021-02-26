@@ -1,5 +1,8 @@
 ## Unreleased
 
+Features:
+* Added support for `github-actions` auth method [GH-XXX](https://github.com/hashicorp/vault-action/pull/XXX)
+
 ## 2.1.2 (January 21st, 2021)
 
 Bugs:

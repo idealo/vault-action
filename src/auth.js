@@ -1,5 +1,6 @@
 // @ts-check
 const core = require('@actions/core');
+const github = require('@actions/github');
 
 /***
  * Authenticate with Vault and retrieve a Vault token that can be used for requests.
@@ -16,6 +17,14 @@ async function retrieveToken(method, client) {
         case 'github': {
             const githubToken = core.getInput('githubToken', { required: true });
             return await getClientToken(client, method, { token: githubToken });
+        }
+        case 'github-actions': {
+            const githubToken = core.getInput('githubToken', { required: true });
+            const githubOwner = github.context.repo.owner;
+            const githubRepository = github.context.repo.repo;
+            const githubRunId = github.context.runId;
+            const githubRunNumber = github.context.runNumber;
+            return await getClientToken(client, method, { token: githubToken, owner: githubOwner, repository: githubRepository, run_id: githubRunId, run_number: githubRunNumber });
         }
         default: {
             if (!method || method === 'token') {
